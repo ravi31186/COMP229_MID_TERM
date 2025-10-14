@@ -21,6 +21,7 @@ app.get('/api/rpitems/:id', (req, res) => {
         }
 
         return res.json({"sportName": sports[req.params.id]});
+
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
@@ -36,6 +37,7 @@ app.post('/api/rpitems', (req, res) => {
         }
 
         return res.json(req.body);
+
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
@@ -51,6 +53,7 @@ app.put('/api/rpitems/:id', (req, res) => {
         }
 
         return res.json(sports);
+
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
@@ -66,6 +69,7 @@ app.delete('/api/rpitems/:id', (req, res) => {
         }
 
         return res.json(sports);
+        
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
