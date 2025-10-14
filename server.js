@@ -30,12 +30,12 @@ app.get('/api/rpitems/:id', (req, res) => {
 // add new item
 app.post('/api/rpitems', (req, res) => {
     try {
-        sports.push(req.body.sportName);
         
         if (!req.body.sportName) {
             return res.status(400).json({ message: 'Invalid input data' });
         }
-
+        
+        sports.push(req.body.sportName);
         return res.json(req.body);
 
     } catch (err) {
@@ -46,12 +46,12 @@ app.post('/api/rpitems', (req, res) => {
 // update item by id
 app.put('/api/rpitems/:id', (req, res) => {
     try {
-        sports[req.params.id] = req.body.sportName;
 
         if (req.params.id > sports.length) {
             return res.status(400).json({ message: 'Invalid input data' });
         }
 
+        sports[req.params.id] = req.body.sportName;
         return res.json(sports);
 
     } catch (err) {
@@ -62,14 +62,14 @@ app.put('/api/rpitems/:id', (req, res) => {
 // remove item by id
 app.delete('/api/rpitems/:id', (req, res) => {
     try {
-        sports.splice(req.params.id, 1);
 
         if (req.params.id > sports.length) {
             return res.status(400).json({ message: 'Invalid input data' });
         }
 
+        sports.splice(req.params.id, 1);
         return res.json(sports);
-        
+
     } catch (err) {
         return res.status(400).json({ error: err.message });
     }
